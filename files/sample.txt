@@ -1,0 +1,1 @@
+Hello from the MCP server! This is a sample file.
