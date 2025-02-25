@@ -1,25 +1,38 @@
-import express from 'express';
-import { readFile } from 'fs/promises';
-import path from 'path';
+import { readFile } from "node:fs/promises";
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import {
+  CallToolRequestSchema,
+  ErrorCode,
+  ListToolsRequestSchema,
+  McpError,
+} from "@modelcontextprotocol/sdk/types.js";
 
-const app = express();
-const port = 3000;
-
-app.get('/file/:filename', async (req, res) => {
-  try {
-    const filename = req.params.filename;
-    // Ensure the file path is within our project directory
-    const filePath = path.join(__dirname, '..', 'files', filename);
-
-    const content = await readFile(filePath, 'utf-8');
-    res.send(content);
-  } catch (error) {
-    res.status(404).send({
-      error: 'File not found or could not be read',
-    });
+const server = new Server({
+  name: "roland",
+  version: "1.0.0",
+}, {
+  capabilities: {
+    tools: {}
   }
 });
 
-app.listen(port, () => {
-  console.log(`MCP server is running at http://localhost:${port}`);
+server.setRequestHandler(ListToolsRequestSchema, async () => {
+  const tools = [{
+    name: "about_roland",
+    description: "Give more information about Roland",
+  }];
+
+  return { tools };
 });
+
+server.setRequestHandler(CallToolRequestSchema, async (request) => {
+  if (request.params.name === "about_roland") {
+    const about = await readFile("files/about.md", "utf-8");
+    return { toolResult: about };
+  }
+  throw new McpError(ErrorCode.MethodNotFound, "Method not found");
+});
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
