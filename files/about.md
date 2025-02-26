@@ -6,7 +6,6 @@ permalink: /about/
 ---
 
 > Builder and runner of functional teams and functional systems
-
 > Explorer of extreme digital nomading and remote-first cultures
 
 My name is Roland Tritsch. I am `The Extreme Digital Nomad (TEDN)`. I
@@ -30,7 +29,7 @@ My favorite ...
 
 An acrostic poem about Roland ...
 
-```
+```plain
 Racing towards his dreams, he wanders far and wide,
 Out in the world, adventure by his side,
 Listening to nature's beauty, he seeks to explore,
@@ -45,7 +44,7 @@ every line spells my name. I think the result is kind-a accurate.
 
 The writer/poet in my life felt challenged to do better ...
 
-```
+```plain
 Resilient Knight
 Optimist and bright
 Love of my heart
