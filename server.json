@@ -2,9 +2,7 @@
   "mcpServers": {
     "roland": {
       "command": "node",
-      "args": [
-        "/home/yoda/Development/Home/typescript-mcp-roland/build/server.js"
-      ]
+      "args": ["<serverRoot/build/server.js"]
     }
   }
 }
