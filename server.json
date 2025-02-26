@@ -2,7 +2,7 @@
   "mcpServers": {
     "roland": {
       "command": "node",
-      "args": ["<serverRoot/build/server.js"]
+      "args": ["<serverHome>/build/server.js"]
     }
   }
 }
