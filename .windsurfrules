@@ -1,1 +1,6 @@
-Add
+For this project the following rules apply:
+
+1. We are building and maintaining an MCP server - https://github.com/modelcontextprotocol
+2. The programming language is Typescript.
+3. My build system is npm. To run the build tool you need to use 'npm run build'.
+4. Please generate idiomatic Typescript code.
