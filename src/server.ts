@@ -13,5 +13,13 @@ server.tool('about-roland', 'Give more information about Roland', async () => {
   return { content: [{ type: 'text', text: about }] };
 });
 
-const transport = new StdioServerTransport();
-await server.connect(transport);
+async function main() {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.info('Roland MCP-Server started!');
+}
+
+main().catch((error) => {
+  console.error('Fatal error in Roland MCP-Server main():', error);
+  process.exit(1);
+});
