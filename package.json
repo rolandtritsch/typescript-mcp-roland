@@ -1,26 +1,25 @@
 {
   "name": "typescript-mcp-roland",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A very simple MCP server to explain who Roland is.",
   "private": true,
   "type": "module",
   "bin": {
-    "mcp-server": "./build/server.js"
+    "roland": "./build/server.js"
   },
   "files": [
     "build"
   ],
   "scripts": {
-    "build": "tsc && node -e \"require('fs').chmodSync('build/server.js', '755')\"",
-    "prepare": "npm run build",
-    "watch": "tsc --watch",
+    "build": "tsc && chmod 755 build/server.js",
     "inspector": "npx @modelcontextprotocol/inspector build/server.js"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "0.6.0"
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "@types/node": "^20.11.24",
+    "@types/node": "^22.13.10",
     "typescript": "^5.3.3"
   }
 }
