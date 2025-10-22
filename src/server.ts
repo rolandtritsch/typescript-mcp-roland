@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { readFile } from 'node:fs/promises';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
@@ -16,7 +17,6 @@ server.tool('about-roland', 'Give more information about Roland', async () => {
 async function main() {
   const transport = new StdioServerTransport();
   await server.connect(transport);
-  console.info('Roland MCP-Server started!');
 }
 
 main().catch((error) => {
